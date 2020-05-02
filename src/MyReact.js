@@ -1,5 +1,6 @@
 // 1. createElement Stub
 // 2. createElement simple implementation
+import createElementVdom from 'virtual-dom/create-element';
 
 const MyReact = (function () {
   function createElement(type, attributes = {}, ...children) {
@@ -26,7 +27,7 @@ const MyReact = (function () {
   const render = function (vdom, container, oldDom = container.firstChild) {
     if (!oldDom) {
         // mountElement(vdom, container, oldDom);
-        container.appendChild(vdom)
+        container.appendChild(createElementVdom(vdom))
     }
 }
 
@@ -39,10 +40,10 @@ const mountSimpleNode = function (vdom, container, oldDomElement, parentComponen
     let newDomElement = null;
     const nextSibling = oldDomElement && oldDomElement.nextSibling;
 
-    if (vdom.type === "text") {
+    if (vdom.tagName === "text") {
         newDomElement = document.createTextNode(vdom.props.textContent);
     } else {
-        newDomElement = document.createElement(vdom.type);
+        newDomElement = document.createElement(vdom.tagName);
     }
 
     // Setting reference to vdom to dom

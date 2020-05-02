@@ -1,20 +1,22 @@
 import MyReact from './MyReact';
-import h from 'hyperscript';
+import {h} from 'virtual-dom';
+import createElement from 'virtual-dom/create-element';
+// import h from 'hyperscript';
 import hh from 'hyperscript-helpers';
 import '../style/app.css';
 import '../style/fontawesome/all.css'
 console.log('start');
 const {div, h1, h2, h3, span, button, br} = hh(h);
 const root = document.getElementById("root");
-const Step1 = (function() {
-    // create a new div element 
-    const newDiv = document.createElement("div"); 
-    // and give it some content 
-    var newContent = document.createTextNode("Hi there and greetings!"); 
-    // add the text node to the newly created div
-    newDiv.appendChild(newContent);
-    return newDiv;
-})();
+// const Step1 = (function() {
+//     // create a new div element 
+//     const newDiv = document.createElement("div"); 
+//     // and give it some content 
+//     var newContent = document.createTextNode("Hi there and greetings!"); 
+//     // add the text node to the newly created div
+//     newDiv.appendChild(newContent);
+//     return newDiv;
+// })();
 const Step2 = (div([
   h1({'data-id': 'header'}, 'Hello Kosac React'),
   h2('(Welcome Kosac)'),
@@ -41,5 +43,5 @@ const Step2 = (div([
   // </div>
 // );
 
-console.log(Step1)
-MyReact.render(Step1, root)
+console.log(Step2)
+MyReact.render(Step2, root)
